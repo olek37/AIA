@@ -25,6 +25,10 @@ td > p[colspan="2"] {
   font-size: small;
 }
 
+p+p {
+  color: gray;
+}
+
 body {
   background-image: url(books.png);
   background-repeat: repeat-y;
