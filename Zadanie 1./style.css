@@ -1,0 +1,33 @@
+li { list-style-type: square }
+
+#cena {
+  color: red;
+  font-weight: bold;
+}
+
+.wstep {
+  font-style: italic;
+}
+
+td img {
+  border: 2px solid blue;
+}
+
+td img:hover {
+  border: 2px solid red;
+}
+
+h1+h2 {
+  letter-spacing: 5px;
+}
+
+td > p[colspan="2"] {
+  font-size: small;
+}
+
+body {
+  background-image: url(books.png);
+  background-repeat: repeat-y;
+}
+
+h1 { color: green }
