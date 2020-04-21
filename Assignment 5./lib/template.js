@@ -1,0 +1,10 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var view = function view(html) {
+  return "\n  <!DOCTYPE html>\n  <html>\n  <head>\n    <title>ClothesApp</title>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css\" integrity=\"sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=\" crossorigin=\"anonymous\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n\n    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script> \n  </head>\n  <body>\n    <div class='container'>\n      <h1>My Clothes</h1>\n      " + html + "\n    </div>\n    <script>\n    $(document).ready(function(){\n      $(\".add\").on(\"click\", function(event){\n          event.preventDefault()\n          const data = {product: $(this).data('product')}\n          $.ajax({\n              url: '/',\n              type: 'POST',\n              data: data\n          }).done(function(data){\n            alert('Added to cart')\n          }).fail(function(data){\n            alert('Error')  \n          });\n      });\n      $(\".buy\").on(\"click\", function(event){\n        event.preventDefault()\n        $.ajax({\n            url: '/cart',\n            type: 'POST',\n            data: {}\n        }).done(function(data){\n          alert('Purchased')\n          window.location = '/'\n        }).fail(function(data){\n          alert('Error')\n          window.location = '/'\n        });\n      });\n      $(\".remove\").on(\"click\", function(event){\n        event.preventDefault()\n        const data = {product: $(this).data('product')}\n        $.ajax({\n            url: '/cart',\n            type: 'DELETE',\n            data: data\n        }).done(function(data){\n          alert('Removed from cart')\n          location.reload()\n        }).fail(function(data){\n          alert('Error')  \n          location.reload()\n        });\n    });\n    });\n    </script>\n  </body>\n  </html>\n";
+};
+
+exports.default = view;
