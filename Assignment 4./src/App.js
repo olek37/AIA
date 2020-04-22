@@ -5,7 +5,7 @@ import data from './items.json'
 import ItemList from './components/ItemList'
 
 const App = () => {
-  const [items, setItems] = useState(data.map(item => ({ ...item, editable: false })))
+  const [items, setItems] = useState(data.map((item,idx) => ({ ...item, editable: false, id: idx })))
   return (
   <div className='container'>
     <h1>Mountains</h1>
